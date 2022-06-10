@@ -16,7 +16,6 @@ class Costs(models.Model):
         verbose_name_plural = 'Расходы'
 
 
-
 class Types(models.Model):
     name = models.CharField(max_length=100, db_index=True)
 
@@ -28,7 +27,6 @@ class Types(models.Model):
         verbose_name_plural = 'Виды события'
 
 
-
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True)
 
@@ -38,5 +36,24 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория расхода'
         verbose_name_plural = 'Категории расходов'
+
+
+class Plan(models.Model):
+    time_create = models.DateTimeField('Дата', auto_now_add=True)
+    name = models.CharField('Наименование', max_length=300)
+    amount = models.IntegerField('Сумма')
+    cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+    Completed = models.BooleanField('Исполнен', null=True)
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Бюджет'
+        verbose_name_plural = 'Бюджет'
+
+
+
 
 

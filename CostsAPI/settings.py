@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_filters',
     'rest_framework',
     'coins.apps.CoinsConfig',
     'django.contrib.admin',
@@ -71,6 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CostsAPI.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
