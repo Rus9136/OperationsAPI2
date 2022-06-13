@@ -10,10 +10,11 @@ class PlanFilter(rest_filters.FilterSet):
     name = CharFilter(field_name='name', lookup_expr='incontains')
     amount = NumberFilter(field_name='amount')
     Completed = BooleanFilter(field_name='Completed')
+    cat = NumberFilter(field_name='cat')
 
     class Meta:
         model = Plan
-        fields = ['name', 'amount', 'Completed']
+        fields = ['name', 'amount', 'Completed', 'cat']
 
 
 class CostViewSet(viewsets.ModelViewSet):
