@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Costs, Plan
 from .serializers import CostSerializers, PlanSerializers
 from django_filters import rest_framework as rest_filters, NumberFilter, CharFilter, BooleanFilter
-from rest_framework import filters
+#from rest_framework import filters
 
 
 class PlanFilter(rest_filters.FilterSet):
